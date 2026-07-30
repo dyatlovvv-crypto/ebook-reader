@@ -15,3 +15,4 @@ When committing, pushing, or writing README/LICENSE/docs for GitHub/GitLab (this
 - Keep signing material local and gitignored (`keystore/`, `*.jks`, `keystore.properties`)
 - Do not put personal brand IDs, fingerprints, or backup instructions in the public tree unless the user explicitly asks
 
+- GitHub/GitLab repo description may end with `by SpustyaRukovaRecords` (metadata only, not keys/paths)
