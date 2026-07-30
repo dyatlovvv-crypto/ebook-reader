@@ -20,3 +20,5 @@ keystore/
 *.pem
 *.p12
 **/BACKUP-THIS.txt
+
+.cursor/
