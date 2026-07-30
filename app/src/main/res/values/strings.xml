@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- app_name / app_version задаются в app/build.gradle.kts -->
+</resources>

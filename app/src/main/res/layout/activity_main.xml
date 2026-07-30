@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F2EA">
+
+    <!-- LIBRARY -->
+    <LinearLayout
+        android:id="@+id/libraryPane"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="48dp"
+        android:background="#1C1C1E">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:id="@+id/libraryTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:paddingStart="8dp"
+                android:text="Библиотека"
+                android:textColor="#F2F2F2"
+                android:textSize="28sp" />
+
+            <ImageButton
+                android:id="@+id/btnAppSettings"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Настройки"
+                android:src="@android:drawable/ic_menu_preferences"
+                android:tint="#F2F2F2" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/folderHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="4dp"
+            android:text="Выбери папку с книгами или добавь файл"
+            android:textColor="#9A9A9A"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPickFolder"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:text="Папка"
+                android:textAllCaps="false"
+                app:strokeColor="#9A9A9A" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnScanFolder"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Сканировать"
+                android:textAllCaps="false"
+                app:strokeColor="#9A9A9A" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/emptyHint"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Пока пусто\nВыбери папку или нажми +"
+            android:textColor="#9A9A9A"
+            android:textSize="15sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/booksList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:padding="16dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:contentDescription="Добавить книгу"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#E8E8E8"
+        app:tint="#1C1C1E" />
+
+    <!-- READER -->
+    <FrameLayout
+        android:id="@+id/readerPane"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#F5F2EA">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pagePager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Bottom status like FBReader -->
+        <LinearLayout
+            android:id="@+id/statusBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="10dp">
+
+            <ProgressBar
+                android:id="@+id/pageProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:max="1000"
+                android:progress="0"
+                android:progressTint="#3B7DD8" />
+
+            <TextView
+                android:id="@+id/pageStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:paddingTop="4dp"
+                android:text="1/1"
+                android:textColor="#888888"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Settings menu (center tap) -->
+        <LinearLayout
+            android:id="@+id/settingsPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="24dp"
+            android:background="#EE2A2A2A"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="Настройки чтения"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Тема"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp"
+                android:paddingBottom="12dp">
+
+                <View
+                    android:id="@+id/themeLight"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="#F7F5F0" />
+
+                <View
+                    android:id="@+id/themeSepia"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="#F0E6D2" />
+
+                <View
+                    android:id="@+id/themeDark"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="#2F2F2F" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Размер шрифта"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp" />
+
+            <SeekBar
+                android:id="@+id/fontSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="140"
+                android:progress="40" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Межстрочный интервал"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp" />
+
+            <SeekBar
+                android:id="@+id/lineHeightSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="80"
+                android:progress="25" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="Тап по центру — сохранить и закрыть"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackToLibrary"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="В библиотеку"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <include
+        android:id="@+id/themeOnboarding"
+        layout="@layout/theme_onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>

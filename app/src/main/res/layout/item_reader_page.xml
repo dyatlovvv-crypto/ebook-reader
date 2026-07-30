@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pageContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:breakStrategy="high_quality"
+    android:fontFamily="serif"
+    android:gravity="top|start"
+    android:hyphenationFrequency="full"
+    android:justificationMode="inter_word"
+    android:lineSpacingMultiplier="1.55"
+    android:paddingLeft="28dp"
+    android:paddingTop="40dp"
+    android:paddingRight="28dp"
+    android:paddingBottom="48dp"
+    android:textColor="#1A1A1A"
+    android:textIsSelectable="false"
+    android:textSize="18sp" />

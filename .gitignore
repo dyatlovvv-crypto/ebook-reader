@@ -1,0 +1,22 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+.kotlin/
+*.apk
+*.aab
+
+# Signing (local only)
+keystore.properties
+keystore/
+*.jks
+*.keystore
+*.pem
+*.p12
+**/BACKUP-THIS.txt
