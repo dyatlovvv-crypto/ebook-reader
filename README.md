@@ -9,7 +9,3 @@ Android-читалка для EPUB, FB2 и TXT.
 ```bash
 ./gradlew assembleDebug
 ```
-
-## Версия
-
-Смотри `versionName` / `versionCode` в `app/build.gradle.kts`.
